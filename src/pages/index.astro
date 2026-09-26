@@ -1,0 +1,459 @@
+---
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home Cut Barber - Seu estilo. Seu cuidado.</title>
+    <meta name="description" content="Conheça nossas unidades em Botafogo, Jardim Primavera e Xerém e encontre o cuidado que combina com você. Especialistas em prótese capilar, corte infantil e barbearia premium.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+</head>
+<body class="selection:bg-primary/30 selection:text-white relative">
+
+    <!-- Navbar Desktop & Mobile -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded" aria-label="Voltar ao início">
+                <img src="/assets/logo.jpg" alt="Home Cut Barber Logo" class="h-12 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105" />
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 font-montserrat text-xs tracking-widest uppercase font-semibold">
+                <a href="#unidades" class="text-textMuted hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1">Unidades</a>
+                <a href="#resultados" class="text-textMuted hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1">Resultados</a>
+                <a href="#protese" class="text-textMuted hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1">Prótese</a>
+                <a href="#infantil" class="text-textMuted hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1">Infantil</a>
+                <a href="#sobre" class="text-textMuted hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded px-1">A Marca</a>
+            </div>
+
+            <!-- Agendar Btn (Desktop) -->
+            <button class="hidden md:flex open-agendamento btn-primary !min-h-[44px] !text-[10px]" aria-label="Abrir agendamento">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Agendar
+            </button>
+            
+            <!-- Hamburger Menu (Mobile) -->
+            <button id="btn-mobile-menu" class="md:hidden text-textWhite p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded" aria-label="Menu principal">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background/95 backdrop-blur-lg hidden flex-col justify-center items-center gap-8 pt-16">
+        <a href="#unidades" class="font-cinzel text-2xl text-textWhite hover:text-primary transition-colors">Unidades</a>
+        <a href="#resultados" class="font-cinzel text-2xl text-textWhite hover:text-primary transition-colors">Resultados</a>
+        <a href="#protese" class="font-cinzel text-2xl text-textWhite hover:text-primary transition-colors">Prótese Capilar</a>
+        <a href="#infantil" class="font-cinzel text-2xl text-textWhite hover:text-primary transition-colors">Corte Infantil</a>
+        <a href="#sobre" class="font-cinzel text-2xl text-textWhite hover:text-primary transition-colors">A Marca</a>
+        <button class="open-agendamento btn-primary mt-4 w-[200px]" aria-label="Abrir agendamento">
+            Agendar Horário
+        </button>
+    </div>
+
+    <!-- Modal de Agendamento Global -->
+    <div id="modal-agendamento" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-200">
+        <div class="modal-content card-surface w-full max-w-md p-8 relative transform scale-95 opacity-0 transition-all duration-200 shadow-2xl">
+            <button id="close-modal" aria-label="Fechar janela" class="absolute top-4 right-4 p-2 text-textMuted hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center mb-8">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                </div>
+                <h3 id="modal-title" class="font-cinzel text-2xl font-bold mb-2">Escolha a Unidade</h3>
+                <p class="text-textMuted text-sm">Selecione onde deseja ser atendido hoje.</p>
+            </div>
+            <div class="space-y-3">
+                <a href="https://sites.appbarber.com.br/homecutbarberbo-zocs" target="_blank" rel="noopener" class="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-[#1a1a1a] hover:border-primary/50 hover:bg-primary/5 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                    <div>
+                        <span class="block font-montserrat font-bold text-sm uppercase tracking-widest text-textWhite group-hover:text-primary transition-colors">Botafogo</span>
+                        <span class="block text-xs text-textMuted mt-1">Especialista em Prótese</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-textMuted group-hover:text-primary group-hover:translate-x-1 transition-all"></i>
+                </a>
+                <a href="https://sites.appbarber.com.br/homecutbarber-sjd9" target="_blank" rel="noopener" class="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-[#1a1a1a] hover:border-primary/50 hover:bg-primary/5 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                    <div>
+                        <span class="block font-montserrat font-bold text-sm uppercase tracking-widest text-textWhite group-hover:text-primary transition-colors">Jardim Primavera</span>
+                        <span class="block text-xs text-textMuted mt-1">Serviços Premium</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-textMuted group-hover:text-primary group-hover:translate-x-1 transition-all"></i>
+                </a>
+                <a href="https://sites.appbarber.com.br/homecutbarberxr-b5wz" target="_blank" rel="noopener" class="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-[#1a1a1a] hover:border-primary/50 hover:bg-primary/5 transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                    <div>
+                        <span class="block font-montserrat font-bold text-sm uppercase tracking-widest text-textWhite group-hover:text-primary transition-colors">Xerém</span>
+                        <span class="block text-xs text-textMuted mt-1">Destaque Corte Infantil</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-textMuted group-hover:text-primary group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section (Desktop: 55/45, Mobile: Stack) -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left: Text (55%) -->
+            <div class="lg:col-span-7 relative z-10 flex flex-col justify-center text-center lg:text-left">
+                <h1 class="text-[2.75rem] sm:text-6xl md:text-[4.5rem] leading-[1.1] mb-6 reveal">
+                    <span class="title-filled block mb-1 text-textMuted">Seu estilo.</span>
+                    <span class="title-filled block mb-1 text-textWhite">Seu cuidado.</span>
+                    <span class="font-cinzel font-bold text-primary inline-block relative">
+                        Sua Home Cut.
+                        <!-- Linha dourada discreta abaixo do nome -->
+                        <span class="absolute -bottom-2 left-0 right-0 h-1 bg-primary/40 rounded-full w-24 mx-auto lg:mx-0"></span>
+                    </span>
+                </h1>
+                
+                <p class="font-inter text-base sm:text-lg text-textMuted max-w-lg mx-auto lg:mx-0 leading-relaxed mb-10 reveal reveal-delay-1">
+                    Conheça nossas unidades em Botafogo, Jardim Primavera e Xerém e encontre o cuidado que combina com você.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal reveal-delay-2">
+                    <button class="open-agendamento btn-primary w-full sm:w-auto" aria-label="Agendar horário">
+                        Agendar horário
+                    </button>
+                    <a href="#unidades" class="btn-secondary w-full sm:w-auto text-center">
+                        Conhecer as unidades
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Visual Composition (45%) -->
+            <div class="lg:col-span-5 relative hidden sm:block reveal reveal-delay-3">
+                <!-- Composição abstrata da marca caso não haja fotografia -->
+                <div class="aspect-[4/5] max-w-md mx-auto relative flex items-center justify-center">
+                    <!-- Glow de fundo -->
+                    <div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full scale-75"></div>
+                    <!-- Superfície elegante -->
+                    <div class="absolute inset-4 card-surface border-white/5 opacity-80 rotate-3"></div>
+                    <div class="absolute inset-4 card-surface border-primary/20 -rotate-2 overflow-hidden shadow-2xl group">
+                        <img src="/assets/hero-image.jpg" alt="Atendimento Premium Home Cut Barber" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100 grayscale-[20%] hover:grayscale-0">
+                        <!-- Subtle overlay for better blending -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faixa de Acesso às Unidades (Estática) -->
+    <div class="border-y border-white/10 bg-surface/50 py-5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-x-12 gap-y-4">
+            <a href="#unidade-botafogo" class="btn-text">
+                Botafogo <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <a href="#unidade-jardim-primavera" class="btn-text">
+                Jardim Primavera <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <a href="#unidade-xerem" class="btn-text">
+                Xerém <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Destaques (Navegação Útil) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Botafogo -->
+            <div class="card-surface card-interactive p-8 text-left flex flex-col reveal">
+                <h3 class="font-cinzel text-2xl font-bold mb-1">Botafogo</h3>
+                <p class="font-montserrat text-[10px] font-bold tracking-widest uppercase text-textMuted mb-4">Rio de Janeiro</p>
+                <p class="text-textMuted text-sm leading-relaxed flex-grow mb-8">
+                    Referência em prótese capilar, resgatando a autoestima com discrição e excelência.
+                </p>
+                <a href="#unidades" onclick="document.querySelector('[data-unidade=\'botafogo\']').click()" class="btn-text mt-auto">
+                    Explorar unidade <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            
+            <!-- Jardim Primavera -->
+            <div class="card-surface card-interactive p-8 text-left flex flex-col reveal reveal-delay-1">
+                <h3 class="font-cinzel text-2xl font-bold mb-1">Jardim Primavera</h3>
+                <p class="font-montserrat text-[10px] font-bold tracking-widest uppercase text-textMuted mb-4">Duque de Caxias</p>
+                <p class="text-textMuted text-sm leading-relaxed flex-grow mb-8">
+                    Serviços premium de cabelo, barba e cuidados pessoais em um ambiente sofisticado.
+                </p>
+                <a href="#unidades" onclick="document.querySelector('[data-unidade=\'jardim-primavera\']').click()" class="btn-text mt-auto">
+                    Explorar unidade <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Xerém -->
+            <div class="card-surface card-interactive p-8 text-left flex flex-col reveal reveal-delay-2">
+                <h3 class="font-cinzel text-2xl font-bold mb-1">Xerém</h3>
+                <p class="font-montserrat text-[10px] font-bold tracking-widest uppercase text-textMuted mb-4">Duque de Caxias</p>
+                <p class="text-textMuted text-sm leading-relaxed flex-grow mb-8">
+                    Destaque para o atendimento infantil, com paciência e atenção dedicada.
+                </p>
+                <a href="#unidades" onclick="document.querySelector('[data-unidade=\'xerem\']').click()" class="btn-text mt-auto">
+                    Explorar unidade <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Painel de Unidades (Injetado) -->
+    <section id="unidades" class="py-24 px-6 bg-surface border-y border-white/5 relative scroll-mt-20">
+        <div class="max-w-7xl mx-auto">
+            <!-- Tabs -->
+            <div role="tablist" aria-label="Selecione a unidade" class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-6 mb-16 reveal border-b border-white/10 pb-1">
+                <button role="tab" aria-selected="true" class="tab-unidade px-6 py-4 font-montserrat font-bold text-xs uppercase tracking-widest border-b-2 transition-colors border-primary text-primary bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-t" data-unidade="botafogo">Botafogo</button>
+                <button role="tab" aria-selected="false" class="tab-unidade px-6 py-4 font-montserrat font-bold text-xs uppercase tracking-widest border-b-2 transition-colors border-transparent text-white/50 hover:text-white hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-t" data-unidade="jardim-primavera">Jardim Primavera</button>
+                <button role="tab" aria-selected="false" class="tab-unidade px-6 py-4 font-montserrat font-bold text-xs uppercase tracking-widest border-b-2 transition-colors border-transparent text-white/50 hover:text-white hover:border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-t" data-unidade="xerem">Xerém</button>
+            </div>
+
+            <!-- Content Area (App.js injeção aqui) -->
+            <div id="unidade-content" class="min-h-[600px] outline-none" tabindex="-1">
+                <!-- Conteúdo renderizado pelo JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados dos Cortes (Portfólio) -->
+    <section id="resultados" class="py-24 px-6 relative overflow-hidden scroll-mt-20">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 mb-4">
+                    <i data-lucide="scissors" class="w-3.5 h-3.5 text-primary"></i>
+                    <span class="font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase text-primary">Nosso Padrão</span>
+                </div>
+                <h2 class="font-cinzel text-4xl lg:text-5xl font-bold mb-4">A arte do corte</h2>
+                <p class="text-textMuted max-w-2xl mx-auto text-lg leading-relaxed">Referência em visagismo, alinhamento e finalização. Confira alguns dos nossos resultados recentes.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Frame 1 -->
+                <div class="aspect-[4/5] rounded-xl bg-surface border border-primary/20 overflow-hidden reveal group relative">
+                    <img src="/assets/resultado-1.png" alt="Resultado Home Cut 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+                <!-- Frame 2 -->
+                <div class="aspect-[4/5] rounded-xl bg-surface border border-primary/20 overflow-hidden reveal reveal-delay-1 group relative md:mt-8">
+                    <img src="/assets/resultado-2.png" alt="Resultado Home Cut 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+                <!-- Frame 3 -->
+                <div class="aspect-[4/5] rounded-xl bg-surface border border-primary/20 overflow-hidden reveal reveal-delay-2 group relative">
+                    <img src="/assets/resultado-3.png" alt="Resultado Home Cut 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+                <!-- Frame 4 -->
+                <div class="aspect-[4/5] rounded-xl bg-surface border border-primary/20 overflow-hidden reveal reveal-delay-3 group relative md:mt-8">
+                    <img src="/assets/resultado-4.png" alt="Resultado Home Cut 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destaque: Prótese Capilar -->
+    <section id="protese" class="py-24 px-6 relative overflow-hidden scroll-mt-20">
+        <!-- Fundo sutil -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+            <!-- Texto (Esquerda, 50%) -->
+            <div class="lg:col-span-6 reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-primary/30 bg-primary/10 mb-6">
+                    <i data-lucide="info" class="w-3.5 h-3.5 text-primary"></i>
+                    <span class="font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase text-primary">Exclusivo em Botafogo</span>
+                </div>
+                
+                <h2 class="font-cinzel text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                    Prótese capilar <br/>com naturalidade
+                </h2>
+                
+                <p class="text-textMuted text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
+                    A Home Cut Barber de Botafogo é referência na aplicação e cuidados de próteses capilares. Agende uma avaliação e conheça as possibilidades para o seu visual.
+                </p>
+                
+                <!-- Blocos compactos de serviço -->
+                <div class="grid sm:grid-cols-3 gap-4 mb-10">
+                    <div class="bg-[#151515] border border-white/5 p-4 rounded-xl">
+                        <i data-lucide="search" class="w-5 h-5 text-primary mb-3"></i>
+                        <h4 class="font-montserrat font-bold text-xs uppercase text-textWhite">Avaliação</h4>
+                    </div>
+                    <div class="bg-[#151515] border border-white/5 p-4 rounded-xl">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-primary mb-3"></i>
+                        <h4 class="font-montserrat font-bold text-xs uppercase text-textWhite">Colocação</h4>
+                    </div>
+                    <div class="bg-[#151515] border border-white/5 p-4 rounded-xl">
+                        <i data-lucide="settings" class="w-5 h-5 text-primary mb-3"></i>
+                        <h4 class="font-montserrat font-bold text-xs uppercase text-textWhite">Manutenção</h4>
+                    </div>
+                </div>
+                
+                <a href="https://sites.appbarber.com.br/homecutbarberbo-zocs" target="_blank" rel="noopener" class="btn-primary w-full sm:w-auto">
+                    Agendar avaliação em Botafogo
+                </a>
+            </div>
+            
+            <!-- Imagem/Composição (Direita, 50%) -->
+            <div class="lg:col-span-6 relative reveal reveal-delay-2 hidden sm:block">
+                <!-- Composição tipográfica/visual da marca para prótese -->
+                <div class="aspect-[4/3] rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center relative overflow-hidden shadow-2xl group">
+                    <img src="/assets/protese.jpeg" alt="Especialista em Prótese Capilar Home Cut" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destaque: Corte Infantil -->
+    <section id="infantil" class="py-24 px-6 bg-[#0a0a0a] border-y border-white/5 relative overflow-hidden scroll-mt-20">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center flex-col-reverse lg:flex-row">
+            
+            <!-- Composição/Imagem (Esquerda) -->
+            <div class="lg:col-span-6 relative reveal order-2 lg:order-1 hidden sm:block">
+                <div class="aspect-square max-w-md ml-auto rounded-2xl bg-surface border border-white/10 flex items-center justify-center shadow-xl overflow-hidden relative group">
+                    <img src="/assets/xerem-kids.jpeg" alt="Espaço Infantil Xerém" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                </div>
+            </div>
+            
+            <!-- Texto (Direita) -->
+            <div class="lg:col-span-6 reveal reveal-delay-1 order-1 lg:order-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-white/10 bg-white/5 mb-6">
+                    <i data-lucide="star" class="w-3.5 h-3.5 text-primary"></i>
+                    <span class="font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase text-textWhite">Destaque em Xerém</span>
+                </div>
+                
+                <h2 class="font-cinzel text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                    Um cuidado especial <br/>para os pequenos
+                </h2>
+                
+                <p class="text-textMuted text-base lg:text-lg mb-8 leading-relaxed max-w-lg">
+                    A atenção no atendimento e a estrutura planejada para despertar o interesse das crianças fazem do corte infantil uma das especialidades de maior destaque na nossa unidade de Xerém.
+                </p>
+                
+                <ul class="space-y-4 mb-10 text-white/90">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="heart" class="w-5 h-5 text-primary shrink-0"></i>
+                        <span class="text-sm">Atenção dedicada e muita paciência para os primeiros cortes.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="layout" class="w-5 h-5 text-primary shrink-0"></i>
+                        <span class="text-sm">Estrutura que atrai e distrai as crianças, tornando o momento tranquilo.</span>
+                    </li>
+                </ul>
+                
+                <a href="https://sites.appbarber.com.br/homecutbarberxr-b5wz" target="_blank" rel="noopener" class="btn-primary w-full sm:w-auto">
+                    Agendar corte infantil em Xerém
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Marca (Equipe) -->
+    <section id="sobre" class="py-24 px-6 relative scroll-mt-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-cinzel text-4xl font-bold mb-4">Quem está à frente da Home Cut</h2>
+                <p class="text-textMuted max-w-2xl mx-auto">Uma história construída com experiência no ofício e dedicação à formação técnica de barbeiros profissionais.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Cadu -->
+                <div class="card-surface p-1.5 border border-primary/20 flex flex-col reveal group">
+                    <div class="aspect-[4/5] overflow-hidden rounded-[0.5rem] bg-[#1a1a1a] relative mb-6">
+                        <img src="/assets/cadu.jpeg" alt="Cadu" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="font-cinzel text-3xl font-bold mb-1 text-textWhite drop-shadow-lg">Cadu</h3>
+                            <p class="text-primary font-montserrat text-[10px] tracking-widest uppercase font-bold drop-shadow-md">CEO, Educador e Barbeiro</p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2 flex flex-col flex-grow">
+                        <p class="text-textMuted text-sm leading-relaxed mb-8 flex-grow">
+                            Lidera a marca com visão empreendedora, atuando como palestrante e educador para disseminar técnicas de excelência no mercado de barbearia.
+                        </p>
+                        <a href="https://www.instagram.com/cadubarber.rj/" target="_blank" rel="noopener" class="btn-secondary self-start w-full sm:w-auto">
+                            <i data-lucide="instagram" class="w-4 h-4"></i> Seguir @cadubarber.rj
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fabio Bastos -->
+                <div class="card-surface p-1.5 border border-primary/20 flex flex-col reveal reveal-delay-1 group">
+                    <div class="aspect-[4/5] overflow-hidden rounded-[0.5rem] bg-[#1a1a1a] relative mb-6">
+                        <img src="/assets/fabio.jpeg" alt="Fabio Bastos" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="font-cinzel text-3xl font-bold mb-1 text-textWhite drop-shadow-lg">Fabio Bastos</h3>
+                            <p class="text-primary font-montserrat text-[10px] tracking-widest uppercase font-bold drop-shadow-md">Fundador e Especialista</p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8 pt-2 flex flex-col flex-grow">
+                        <p class="text-textMuted text-sm leading-relaxed mb-8 flex-grow">
+                            Fundador da marca e profissional dedicado à formação técnica de barbeiros, garantindo o padrão e o refinamento do atendimento da Home Cut.
+                        </p>
+                        <a href="https://www.instagram.com/fabioo.bastos/" target="_blank" rel="noopener" class="btn-secondary self-start w-full sm:w-auto">
+                            <i data-lucide="instagram" class="w-4 h-4"></i> Seguir @fabioo.bastos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] border-t border-white/5 pt-20 pb-8 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 mb-16">
+            <!-- Marca -->
+            <div class="md:col-span-5">
+                <div class="mb-6">
+                    <img src="/assets/logo.jpg" alt="Home Cut Barber Logo" class="h-16 w-auto object-contain mix-blend-screen" />
+                </div>
+                <p class="text-textMuted text-sm leading-relaxed max-w-sm mb-6">
+                    A barbearia que une tradição, sofisticação e atendimento de excelência.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-textMuted hover:text-primary hover:border-primary/50 transition-all">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Links Rápidos -->
+            <div class="md:col-span-3">
+                <h4 class="font-montserrat font-bold text-xs tracking-widest uppercase mb-6 text-textWhite">Navegação</h4>
+                <ul class="space-y-4 text-textMuted text-sm">
+                    <li><a href="#unidades" class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary inline-block">Nossas Unidades</a></li>
+                    <li><a href="#protese" class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary inline-block">Prótese Capilar</a></li>
+                    <li><a href="#infantil" class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary inline-block">Corte Infantil</a></li>
+                    <li><a href="#sobre" class="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary inline-block">Sobre os Sócios</a></li>
+                </ul>
+            </div>
+            
+            <!-- Call to action -->
+            <div class="md:col-span-4">
+                <h4 class="font-montserrat font-bold text-xs tracking-widest uppercase mb-6 text-textWhite">Reserve seu horário</h4>
+                <p class="text-textMuted text-sm mb-6 leading-relaxed">Não deixe para depois. Escolha a unidade mais próxima de você e agende agora.</p>
+                <button class="open-agendamento btn-primary w-full" aria-label="Abrir agendamento">
+                    Agendar agora
+                </button>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col items-center justify-between gap-4 text-xs text-textMuted font-inter">
+            <p>&copy; 2026 Home Cut Barber. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/app.js"></script>
+</body>
+</html>
+
