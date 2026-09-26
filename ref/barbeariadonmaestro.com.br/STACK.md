@@ -1,0 +1,9 @@
+- **Elementor** — WordPress page builder used for creating the site layout
+- **WordPress** — Content Management System
+- **WP Rocket** — Caching and performance optimization plugin
+- **Jet Engine / Jet Elements** — Elementor add-ons for dynamic content and extra widgets
+- **Google Fonts** — Roboto, Roboto Slab, Lexend Deca
+- **FontAwesome** — Icon library (referenced in CSS)
+- **jQuery** — JavaScript library used by WordPress/Elementor
+- **Swiper** — Touch slider library used for carousels
+- **Tippy.js / Popper.js** — Tooltip libraries used by Jet plugins

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Design System - Barbearia Premium</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="barbershop-landing-51.aura.build/barbershop-landing-51.aura.build/assets/css2_13ddf91fdf43.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS das Referências -->
+    <link href="barbershop-landing-51.aura.build/barbershop-landing-51.aura.build/assets/css/styles.css" rel="stylesheet"/>
+    <link href="area21barbearia.com.br/assets/1218d3c19e0d0ec7_index-tehGFTJA.css" rel="stylesheet"/>
+    <link href="barbeariadonmaestro.com.br/assets/css/global-styles.css" rel="stylesheet"/>
+    
+    <!-- JS Runtime (Iconify) -->
+    <script src="barbershop-landing-51.aura.build/barbershop-landing-51.aura.build/assets/iconify_654a1ef798a3.js"></script>
+
+    <style>
+        /* Custom Design System Overrides */
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .ds-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .ds-section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Combining the transparent lettering (title-stroke) with modern glow */
+        .hero-ds {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(30,30,30,1) 0%, rgba(10,10,10,1) 100%);
+            overflow: hidden;
+        }
+        
+        .glow-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(224, 172, 41, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+
+        .hero-ds-content {
+            z-index: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .title-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+            color: transparent;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+        
+        .title-filled {
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        .ds-card {
+            background: linear-gradient(160deg, rgb(22, 22, 22) 0%, rgb(14, 14, 14) 100%);
+            border: 1px solid rgba(224, 172, 41, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .ds-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(224, 172, 41, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(224, 172, 41, 0.2);
+        }
+
+        /* Swatches */
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        .color-swatch::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid inherit;
+            opacity: 0.3;
+        }
+
+        /* Responsive Grid */
+        .ds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white">
+
+    <!-- 1. HERO DEMONSTRAÇÃO -->
+    <section class="hero-ds relative overflow-hidden">
+        <div class="glow-orb"></div>
+        <div class="hero-ds-content reveal">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-md mb-6 animate-pulse">
+                <i data-lucide="sparkles" class="w-4 h-4 text-[#e0ac29]"></i>
+                <span class="font-montserrat text-xs tracking-[0.25em] uppercase text-[#e0ac29]">Design System 2.0</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl tracking-[0.05em] leading-tight flex flex-col gap-2">
+                <span class="title-filled reveal-delay-1">ELEGANTE &</span>
+                <span class="title-stroke reveal-delay-2 text-7xl md:text-9xl">MODERNO</span>
+            </h1>
+            
+            <p class="font-inter text-lg text-white/60 max-w-2xl mt-4 reveal-delay-3">
+                Uma fusão criativa entre tipografia transparente clássica, utilitários contemporâneos do Tailwind e o requinte das barbearias premium.
+            </p>
+            
+            <div class="flex gap-4 mt-8 reveal-delay-4">
+                <button class="flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-montserrat text-sm font-bold tracking-[0.2em] uppercase text-black transition-transform hover:scale-[1.05] active:scale-[0.95]" style="background: linear-gradient(135deg, rgb(230, 195, 106) 0%, rgb(244, 218, 140) 50%, rgb(201, 162, 74) 100%); box-shadow: rgba(230, 195, 106, 0.4) 0px 8px 30px;">
+                    Explorar
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </button>
+                <button class="flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-montserrat text-sm font-bold tracking-[0.2em] uppercase text-white border border-white/20 transition-all hover:bg-white/10 hover:border-white/40 backdrop-blur-sm">
+                    Componentes
+                </button>
+            </div>
+        </div>
+        
+        <!-- Marquee effect inherited from Aura build -->
+        <div class="marquee-section absolute bottom-0 left-0 right-0 opacity-30 border-t border-white/10" style="padding: 1rem 0;">
+            <div class="marquee-track">
+                <div class="marquee-item font-cinzel text-xl tracking-widest">
+                    <span>DESIGN SYSTEM</span><div class="dot"></div>
+                    <span>TRANSPARENT TYPOGRAPHY</span><div class="dot"></div>
+                    <span>PREMIUM FEEL</span><div class="dot"></div>
+                    <span>TAILWIND UTILITIES</span><div class="dot"></div>
+                </div>
+                <div class="marquee-item font-cinzel text-xl tracking-widest">
+                    <span>DESIGN SYSTEM</span><div class="dot"></div>
+                    <span>TRANSPARENT TYPOGRAPHY</span><div class="dot"></div>
+                    <span>PREMIUM FEEL</span><div class="dot"></div>
+                    <span>TAILWIND UTILITIES</span><div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="ds-container">
+        
+        <!-- 2. TIPOGRAFIA -->
+        <section class="mb-24 reveal">
+            <h2 class="ds-section-title">2. Tipografia</h2>
+            
+            <div class="ds-grid">
+                <div class="ds-card">
+                    <h3 class="font-montserrat text-xs tracking-[0.2em] uppercase text-[#e0ac29] mb-6">Font Families</h3>
+                    
+                    <div class="mb-6">
+                        <p class="font-cinzel text-2xl mb-1">Cinzel (Primary)</p>
+                        <p class="font-inter text-sm text-white/50">Usado em H1-H6, Títulos, Hero. Fallback: serif.</p>
+                        <p class="font-inter text-xs text-white/30 mt-1">Weights: 400, 600, 700</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="font-inter text-2xl mb-1">Inter (Body)</p>
+                        <p class="font-inter text-sm text-white/50">Usado em parágrafos e textos longos. Fallback: sans-serif.</p>
+                        <p class="font-inter text-xs text-white/30 mt-1">Weights: 300, 400, 600</p>
+                    </div>
+                    
+                    <div>
+                        <p class="font-montserrat text-2xl mb-1 uppercase tracking-widest">Montserrat (Accent)</p>
+                        <p class="font-inter text-sm text-white/50">Usado em botões, labels e badges. Fallback: sans-serif.</p>
+                        <p class="font-inter text-xs text-white/30 mt-1">Weights: 400, 600, 700</p>
+                    </div>
+                </div>
+                
+                <div class="ds-card flex flex-col gap-6">
+                    <h3 class="font-montserrat text-xs tracking-[0.2em] uppercase text-[#e0ac29] mb-2">Type Scale</h3>
+                    
+                    <div>
+                        <h1 class="font-cinzel text-5xl font-bold">Heading 1</h1>
+                        <p class="font-inter text-[10px] text-white/40 font-mono mt-1">text-5xl | font-cinzel | font-bold</p>
+                    </div>
+                    <div>
+                        <h2 class="font-cinzel text-4xl font-semibold">Heading 2</h2>
+                        <p class="font-inter text-[10px] text-white/40 font-mono mt-1">text-4xl | font-cinzel | font-semibold</p>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-3xl">Heading 3</h3>
+                        <p class="font-inter text-[10px] text-white/40 font-mono mt-1">text-3xl | font-cinzel</p>
+                    </div>
+                    <div>
+                        <p class="font-inter text-lg leading-relaxed">Body Large: Utilizado para subtítulos descritivos e introduções. Possui entrelinhas mais generosas.</p>
+                        <p class="font-inter text-[10px] text-white/40 font-mono mt-1">text-lg | font-inter | leading-relaxed</p>
+                    </div>
+                    <div>
+                        <p class="font-inter text-sm text-white/70 leading-normal">Body Small / Caption: Perfeito para textos auxiliares, dicas de ferramentas e legendas de imagens.</p>
+                        <p class="font-inter text-[10px] text-white/40 font-mono mt-1">text-sm | font-inter | text-white/70</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SISTEMA DE CORES -->
+        <section class="mb-24 reveal">
+            <h2 class="ds-section-title">3. Sistema de Cores</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Primary -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="color-swatch transition-transform group-hover:scale-110" style="background: #e0ac29; border-color: #e0ac29;"></div>
+                    <p class="font-montserrat text-xs tracking-widest uppercase font-bold mt-4">Primary (Gold)</p>
+                    <p class="font-inter text-xs text-white/50 mt-1">#E0AC29</p>
+                    <p class="font-inter text-[10px] text-white/30 mt-1">Textos destaque, botões, bordas ativas</p>
+                </div>
+                
+                <!-- Background -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="color-swatch transition-transform group-hover:scale-110" style="background: #0a0a0a; border: 1px solid rgba(255,255,255,0.2);"></div>
+                    <p class="font-montserrat text-xs tracking-widest uppercase font-bold mt-4">Background</p>
+                    <p class="font-inter text-xs text-white/50 mt-1">#0A0A0A</p>
+                    <p class="font-inter text-[10px] text-white/30 mt-1">Fundo principal, superfície (Contrast AAA)</p>
+                </div>
+
+                <!-- Surface -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="color-swatch transition-transform group-hover:scale-110" style="background: #161616; border: 1px solid rgba(255,255,255,0.1);"></div>
+                    <p class="font-montserrat text-xs tracking-widest uppercase font-bold mt-4">Surface</p>
+                    <p class="font-inter text-xs text-white/50 mt-1">#161616</p>
+                    <p class="font-inter text-[10px] text-white/30 mt-1">Cards, Modais, Dropdowns</p>
+                </div>
+
+                <!-- Gradient -->
+                <div class="flex flex-col items-center text-center group">
+                    <div class="color-swatch transition-transform group-hover:scale-110" style="background: linear-gradient(135deg, rgb(230, 195, 106) 0%, rgb(244, 218, 140) 50%, rgb(201, 162, 74) 100%);"></div>
+                    <p class="font-montserrat text-xs tracking-widest uppercase font-bold mt-4">Primary Gradient</p>
+                    <p class="font-inter text-xs text-white/50 mt-1">Linear 135deg</p>
+                    <p class="font-inter text-[10px] text-white/30 mt-1">CTAs Principais, Hover states</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. UI COMPONENTS -->
+        <section class="mb-24">
+            <h2 class="ds-section-title reveal">4. UI Components</h2>
+            
+            <div class="ds-grid">
+                
+                <!-- Buttons & Badges -->
+                <div class="ds-card reveal">
+                    <h3 class="font-montserrat text-xs tracking-[0.2em] uppercase text-[#e0ac29] mb-6 border-b border-white/10 pb-2">Botões & Badges</h3>
+                    
+                    <div class="flex flex-col gap-6">
+                        <!-- Primary Gradient Button -->
+                        <button class="w-full flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 font-montserrat text-xs font-bold tracking-[0.2em] uppercase text-black transition-transform hover:scale-[1.02] active:scale-[0.98]" style="background: linear-gradient(135deg, rgb(230, 195, 106) 0%, rgb(244, 218, 140) 50%, rgb(201, 162, 74) 100%); box-shadow: rgba(230, 195, 106, 0.35) 0px 8px 28px;">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Agendar Primário
+                        </button>
+                        
+                        <!-- Outline Button -->
+                        <button class="w-full flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 font-montserrat text-xs font-bold tracking-[0.2em] uppercase text-white border border-white/20 transition-all hover:bg-white/10 hover:border-white/40">
+                            Botão Secundário
+                        </button>
+                        
+                        <!-- Badges -->
+                        <div class="flex gap-3 flex-wrap mt-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e0ac29]/30 bg-[#e0ac29]/10 font-montserrat text-[10px] tracking-widest uppercase text-[#e0ac29]">
+                                <i data-lucide="star" class="w-3 h-3"></i> Premium
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-white/5 font-montserrat text-[10px] tracking-widest uppercase text-white">
+                                Neutro
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inputs & Controls -->
+                <div class="ds-card reveal reveal-delay-1">
+                    <h3 class="font-montserrat text-xs tracking-[0.2em] uppercase text-[#e0ac29] mb-6 border-b border-white/10 pb-2">Inputs & Controles</h3>
+                    
+                    <div class="flex flex-col gap-5">
+                        <div class="relative group">
+                            <i data-lucide="user" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 group-focus-within:text-[#e0ac29] transition-colors"></i>
+                            <input type="text" placeholder="Nome completo" class="w-full bg-white/5 border border-white/10 rounded-lg py-3 pl-11 pr-4 font-inter text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#e0ac29]/50 focus:bg-white/10 transition-all">
+                        </div>
+                        
+                        <div class="relative group">
+                            <select class="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 font-inter text-sm text-white/70 focus:outline-none focus:border-[#e0ac29]/50 focus:bg-white/10 transition-all appearance-none cursor-pointer">
+                                <option>Corte Clássico</option>
+                                <option>Barba Completa</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 pointer-events-none"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modals & Cards (Preview) -->
+                <div class="ds-card reveal reveal-delay-2 col-span-1 md:col-span-2 relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full pointer-events-none opacity-20 animate-pulse" style="background: radial-gradient(circle, #e0ac29, transparent 70%);"></div>
+                    
+                    <h3 class="font-montserrat text-xs tracking-[0.2em] uppercase text-[#e0ac29] mb-6 border-b border-white/10 pb-2 relative z-10">Modal / Popup (Exit Intent)</h3>
+                    
+                    <div class="relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden border border-[#e0ac29]/30 shadow-[0_24px_80px_rgba(0,0,0,0.6)] z-10" style="background: linear-gradient(160deg, rgb(14, 14, 14) 0%, rgb(22, 22, 22) 60%, rgb(14, 14, 14) 100%);">
+                        <div class="relative px-6 py-8 text-center">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-[#e0ac29]/30 bg-[#e0ac29]/10">
+                                <i data-lucide="scissors" class="w-3.5 h-3.5 text-[#e0ac29]"></i>
+                                <span class="font-montserrat text-[9px] tracking-[0.25em] uppercase text-[#e0ac29]">Atenção</span>
+                            </div>
+                            <h4 class="font-cinzel text-xl text-white tracking-wide mb-2">Exemplo de Modal</h4>
+                            <p class="font-inter text-xs text-white/60 mb-6">Inspirado pelo popup da Area21, utilizando bordas finas, gradientes escuros e glow de fundo.</p>
+                            <button class="w-full flex items-center justify-center gap-2 rounded-full px-4 py-2.5 font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase text-black transition-transform hover:scale-[1.02]" style="background: linear-gradient(135deg, rgb(230, 195, 106) 0%, rgb(244, 218, 140) 50%, rgb(201, 162, 74) 100%);">
+                                Ação Principal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. ÍCONES -->
+        <section class="mb-24 reveal">
+            <h2 class="ds-section-title">5. Ícones (Lucide & Iconify)</h2>
+            <p class="font-inter text-sm text-white/60 mb-8">Utilizamos Lucide para ícones UI sistêmicos e Iconify (Solar Icons) para ilustrações de serviços.</p>
+            
+            <div class="grid grid-cols-4 md:grid-cols-8 gap-4 text-center">
+                <div class="ds-card flex flex-col items-center justify-center p-4 hover:text-[#e0ac29] group">
+                    <i data-lucide="scissors" class="w-6 h-6 mb-2 text-white/50 group-hover:text-[#e0ac29] transition-colors"></i>
+                    <span class="font-inter text-[10px] text-white/30">scissors</span>
+                </div>
+                <div class="ds-card flex flex-col items-center justify-center p-4 hover:text-[#e0ac29] group">
+                    <i data-lucide="star" class="w-6 h-6 mb-2 text-white/50 group-hover:text-[#e0ac29] transition-colors"></i>
+                    <span class="font-inter text-[10px] text-white/30">star</span>
+                </div>
+                <div class="ds-card flex flex-col items-center justify-center p-4 hover:text-[#e0ac29] group">
+                    <i data-lucide="user" class="w-6 h-6 mb-2 text-white/50 group-hover:text-[#e0ac29] transition-colors"></i>
+                    <span class="font-inter text-[10px] text-white/30">user</span>
+                </div>
+                <div class="ds-card flex flex-col items-center justify-center p-4 hover:text-[#e0ac29] group">
+                    <svg aria-hidden="true" class="iconify iconify--solar w-6 h-6 mb-2 text-white/50 group-hover:text-[#e0ac29] transition-colors" data-icon="solar:crown-bold" viewBox="0 0 24 24"><path fill="currentColor" d="m20.092 14.326l.193-1.894c.103-1.011.17-1.678.117-2.099h.02c.871 0 1.578-.746 1.578-1.666S21.293 7 20.421 7s-1.579.746-1.579 1.667c0 .416.145.797.384 1.089c-.343.223-.792.695-1.468 1.405c-.52.547-.78.82-1.07.863a.84.84 0 0 1-.473-.07c-.268-.124-.447-.462-.804-1.139L13.527 7.25c-.22-.417-.405-.766-.572-1.047c.683-.368 1.15-1.117 1.15-1.98C14.105 2.994 13.163 2 12 2s-2.105.995-2.105 2.222c0 .864.467 1.613 1.15 1.98c-.167.282-.351.631-.572 1.048L8.59 10.816c-.358.676-.537 1.014-.805 1.139a.84.84 0 0 1-.473.07c-.29-.043-.55-.317-1.07-.864c-.676-.71-1.125-1.182-1.468-1.405c.24-.292.384-.673.384-1.09C5.158 7.747 4.45 7 3.578 7C2.708 7 2 7.746 2 8.667c0 .92.707 1.666 1.579 1.666h.019c-.054.42.014 1.088.117 2.099l.193 1.894c.107 1.051.196 2.051.306 2.952h15.572c.11-.9.199-1.901.306-2.952M10.855 22h2.29c2.985 0 4.478 0 5.474-.94c.434-.412.71-1.152.908-2.116H4.473c.198.964.473 1.704.908 2.115C6.377 22 7.87 22 10.855 22"/></svg>
+                    <span class="font-inter text-[10px] text-white/30">crown</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. ANIMAÇÕES -->
+        <section class="reveal">
+            <h2 class="ds-section-title">6. Animações e Microinterações</h2>
+            
+            <div class="ds-grid">
+                <div class="ds-card flex flex-col items-center justify-center text-center p-8">
+                    <div class="w-16 h-16 rounded-full bg-[#e0ac29]/20 flex items-center justify-center animate-pulse mb-4 border border-[#e0ac29]/50">
+                        <i data-lucide="radio" class="w-6 h-6 text-[#e0ac29]"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg mb-2">Pulse Glow</h4>
+                    <p class="font-inter text-xs text-white/50">Usado em backgrounds (orbs) e badges de destaque para chamar atenção suavemente.</p>
+                </div>
+                
+                <div class="ds-card flex flex-col items-center justify-center text-center p-8 group cursor-pointer">
+                    <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-2 group-hover:bg-white/10 group-hover:shadow-[0_10px_20px_rgba(224,172,41,0.2)] mb-4 border border-white/10 group-hover:border-[#e0ac29]/50">
+                        <i data-lucide="mouse-pointer" class="w-6 h-6 text-white/50 group-hover:text-[#e0ac29] transition-colors"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg mb-2">Hover Lift</h4>
+                    <p class="font-inter text-xs text-white/50">Elevação suave ao passar o mouse. Usado em cards (como este), botões e ícones.</p>
+                </div>
+                
+                <div class="ds-card flex flex-col items-center justify-center text-center p-8 reveal reveal-delay-2">
+                    <div class="w-16 h-16 rounded-lg bg-gradient-to-tr from-[#c9a24a] to-[#f4da8c] flex items-center justify-center mb-4 text-black">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-cinzel text-lg mb-2">Scroll Reveal</h4>
+                    <p class="font-inter text-xs text-white/50">Surgimento gradual de baixo para cima (Fade-up) utilizando as classes .reveal e .reveal-delay.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializar Lucide Icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Lógica de Scroll Reveal da Barbershop 51
+        const initReveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 50; // trigger um pouco mais cedo
+                
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Ativa no carregamento
+            setTimeout(revealOnScroll, 100);
+            
+            // Ativa no scroll
+            window.addEventListener('scroll', revealOnScroll);
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initReveal);
+        } else {
+            initReveal();
+        }
+    </script>
+</body>
+</html>

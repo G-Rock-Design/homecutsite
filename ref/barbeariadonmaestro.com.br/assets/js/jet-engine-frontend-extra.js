@@ -1,0 +1,2 @@
+var JetEngineSettings = {"ajaxurl":"https://barbeariadonmaestro.com.br/wp-admin/admin-ajax.php","ajaxlisting":"https://barbeariadonmaestro.com.br/?nocache=1","restNonce":"89bb75b96b","hoverActionTimeout":"400","post_id":"261","sliderLibrary":"swiper","query_builder":{"custom_ids":[]},"addedPostCSS":["423"],"queried_object_id":"261","queried_object_class":"WP_Post"};
+//# sourceURL=jet-engine-frontend-js-extra

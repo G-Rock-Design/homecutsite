@@ -1,0 +1,5 @@
+- **React** — frontend UI library used to build the single-page application interface
+- **Vite** — build tool and bundler used for bundling assets and scripts
+- **Tailwind CSS** — utility-first CSS framework used for all layout and styling
+- **Lucide** — icon library used throughout the interface
+- **Google Maps API** — embedded map and places integration for location services

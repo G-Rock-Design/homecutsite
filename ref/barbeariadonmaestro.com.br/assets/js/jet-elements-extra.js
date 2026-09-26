@@ -1,0 +1,2 @@
+var jetElements = {"ajaxUrl":"https://barbeariadonmaestro.com.br/wp-admin/admin-ajax.php","isMobile":"false","templateApiUrl":"https://barbeariadonmaestro.com.br/wp-json/jet-elements-api/v1/elementor-template","devMode":"false","mapboxToken":"","messages":{"invalidMail":"Please specify a valid e-mail"}};
+//# sourceURL=jet-elements-js-extra

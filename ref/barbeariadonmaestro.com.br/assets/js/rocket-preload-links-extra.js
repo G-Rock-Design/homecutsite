@@ -1,0 +1,2 @@
+var RocketPreloadLinksConfig = {"excludeUris":"/nossos-planos/barba-modelada/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index\\.php/)?wp\\-json(/.*|$)|/wp-admin/|/logout/|/wp-login.php|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https://barbeariadonmaestro.com.br","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra

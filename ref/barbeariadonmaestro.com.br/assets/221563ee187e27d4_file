@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Don Maestro</title>
+	<atom:link href="https://barbeariadonmaestro.com.br/feed/" rel="self" type="application/rss+xml" />
+	<link>https://barbeariadonmaestro.com.br</link>
+	<description>Barber Shop</description>
+	<lastBuildDate>Tue, 02 Dec 2025 12:24:53 +0000</lastBuildDate>
+	<language>pt-BR</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+
+<image>
+	<url>https://barbeariadonmaestro.com.br/wp-content/uploads/Favicon-150x150.png</url>
+	<title>Don Maestro</title>
+	<link>https://barbeariadonmaestro.com.br</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+</channel>
+</rss>
